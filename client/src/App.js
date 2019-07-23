@@ -19,26 +19,24 @@ const App = () => {
   };
 
   return (
-    <>
+    // <>
+  
     <div>
       <SavedList list={savedList} />
-      </div>
 
-      {/* <div className="nav-links"> 
-      <Link to="/">Home</Link>
-      <Link to="/movies">Home</Link>
-      <Link to={`/movies/${movies.id}`}></Link>
-      </div>  */}
 
-      <div> 
-        {/* //Replace this Div with your Routes */}
-        <Route exact path="/" component={MovieList}/>
-        <Route path="/movies/:id" component={Movie} />
-        {/* <Route exact path="/movies" component={MovieList}/>  */}
-
-    </div>
-    </>
-
+        <Route 
+        exact 
+        path="/" component={MovieList}/>
+       
+        <Route path="/movies/:id"
+        render={props => { 
+          console.log("movies.props", props);
+          return <Movie {...props}addToSavedList={addToSavedList} Movie={Movie} />;
+          
+      }}  />  
+            </div>
+    
   );
 };
 
